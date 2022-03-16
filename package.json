@@ -1,0 +1,19 @@
+{
+  "name": "upload-learn",
+  "version": "1.0.0",
+  "description": "learn how to upload a file",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server/app.js"
+  },
+  "keywords": ["upload","Content-Type"],
+  "author": "lingqi",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
