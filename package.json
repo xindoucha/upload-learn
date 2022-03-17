@@ -6,11 +6,16 @@
   "scripts": {
     "server": "nodemon server/app.js"
   },
-  "keywords": ["upload","Content-Type"],
+  "keywords": [
+    "upload",
+    "Content-Type"
+  ],
   "author": "lingqi",
   "license": "ISC",
   "dependencies": {
+    "@koa/router": "^10.1.1",
     "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
