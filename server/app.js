@@ -38,7 +38,21 @@ router.post("/upload2", async (ctx, next) => {
   ctx.req.on("end", () => {
     const buffer = Buffer.concat(arr);
     const content = buffer.toString();
+    console.log(content);
     writeFile("upload.txt", content);
+  });
+  ctx.body = "success";
+});
+
+router.post("/upload3", async (ctx, next) => {
+  const arr = [];
+  ctx.req.on("data", (buffer) => {
+    arr.push(buffer);
+  });
+
+  ctx.req.on("end", () => {
+    const buffer = Buffer.concat(arr);
+    writeFile("upload.jpg", buffer);
   });
   ctx.body = "success";
 });

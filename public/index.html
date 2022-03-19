@@ -22,9 +22,15 @@
   </form> -->
 
   <!-- 3.multipart/form-data manual-->
-  <div>
+  <!-- <div>
     <input id="file" type="file" />
     <input type="button" value="文件上传" onclick="uploadFile()" />
+  </div> -->
+
+  <!-- 4.application/octet-stream manual-->
+  <div>
+    <input id="file" type="file" />
+    <input type="button" value="文件上传" onclick="uploadFileByStream()" />
   </div>
 
   <script>
@@ -40,7 +46,19 @@
         }
       };
       xhr.send(fd);
-      // xhr.send(file);
+    }
+    
+    function uploadFileByStream() {
+      const file = document.getElementById('file').files[0];
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://localhost:3000/upload3', true);
+      xhr.setRequestHeader('content-type','application/octet-stream')
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          alert(xhr.responseText);
+        }
+      };
+      xhr.send(file);
     }
   </script>
 </body>
